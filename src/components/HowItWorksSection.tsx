@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Reveal, Stagger, StaggerItem } from "./MotionPrimitives";
 
 const steps = [
   {
@@ -34,19 +33,19 @@ export default function HowItWorksSection() {
     <section className="w-full bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row">
         {/* Left - Image */}
-        <Reveal className="relative w-full max-w-full lg:w-[700px] h-[400px] md:h-[500px] lg:h-[890px] shrink-0 lg:-ml-[80px] mt-10 lg:mt-20 overflow-hidden">
+        <div className="relative w-full lg:w-[700px] h-[400px] md:h-[500px] lg:h-[890px] shrink-0 lg:-ml-[80px] mt-10 lg:mt-20">
           <Image
             src="/bootcamp landing page design/bootcamp landing page design/image 16.png"
             alt="Students collaborating"
             fill
             className="object-cover"
           />
-        </Reveal>
+        </div>
 
         {/* Right - Process Steps */}
         <div className="flex-1 px-6 md:px-10 lg:pl-10 lg:pr-[40px] py-10 lg:py-0 flex flex-col justify-center">
           {/* Section Header */}
-          <Reveal className="mb-6 lg:mb-0 px-0 lg:px-[40px]">
+          <div className="mb-6 lg:mb-0 px-0 lg:px-[40px]">
             {/* Tag */}
             <div className="border-b-[3px] border-[#0d183a] pb-[7px] pt-[4px] w-fit">
               <span className="font-[family-name:var(--font-montserrat)] font-bold text-[12px] leading-[16px] tracking-[1.2px] text-[#1e3a8a] uppercase">
@@ -57,7 +56,7 @@ export default function HowItWorksSection() {
             <h2 className="font-[family-name:var(--font-montserrat)] font-bold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.25] lg:leading-[60px] tracking-[-0.96px] text-[#1b1b1b] mt-2">
               From application to launch.
             </h2>
-          </Reveal>
+          </div>
 
           {/* Steps with numbered circles */}
           <div className="flex gap-[20px] items-center px-0 lg:px-[40px] mt-8 lg:mt-0 h-auto lg:h-[701px]">
@@ -80,9 +79,9 @@ export default function HowItWorksSection() {
             </div>
 
             {/* Content column - step cards */}
-            <Stagger className="flex min-w-0 flex-col gap-4 flex-1 w-full max-w-[464px]">
+            <div className="flex flex-col gap-4 flex-1 w-[464px] max-w-full">
               {steps.map((step) => (
-                <StaggerItem
+                <div
                   key={step.number}
                   className="bg-white border border-[rgba(0,0,0,0.05)] rounded-[22px] p-[21px] shadow-[0_4px_2px_rgba(0,0,0,0.05)]"
                 >
@@ -92,9 +91,9 @@ export default function HowItWorksSection() {
                   <p className="font-[family-name:var(--font-inter)] text-base leading-[1.5] text-[#4a556c] pt-2">
                     {step.description}
                   </p>
-                </StaggerItem>
+                </div>
               ))}
-            </Stagger>
+            </div>
           </div>
         </div>
       </div>

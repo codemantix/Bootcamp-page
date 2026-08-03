@@ -8,6 +8,7 @@
   --footer-bg: #121829;
   --body-text: #383838;
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --surface-radius: 20px;
 }
 
 @theme inline {

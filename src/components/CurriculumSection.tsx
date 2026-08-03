@@ -165,7 +165,7 @@ export default function CurriculumSection() {
         </div>
 
         {/* Track Content Card */}
-        <AnimatePresence mode="wait" initial={false}><motion.div key={activeTrack} initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: reduced ? 0 : .35 }} className="mt-[19px] min-w-0 bg-white/5 border border-white/[0.27] rounded-[22px] px-5 sm:px-6 md:px-[33px] py-[25px] flex flex-col gap-5">
+        <AnimatePresence mode="wait" initial={false}><motion.div key={activeTrack} initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: reduced ? 0 : .35 }} className="mt-[19px] min-w-0 bg-white/5 border border-white/[0.27] rounded-[20px] px-5 sm:px-6 md:px-[33px] py-[25px] flex flex-col gap-5">
           {/* Tags */}
           <div className="flex flex-wrap gap-2">
             <span className="bg-[rgba(233,235,243,0.35)] text-[#0d183a] font-[family-name:var(--font-montserrat)] font-bold text-[12px] leading-[16px] tracking-[1.2px] uppercase p-2 rounded-[4px]">
@@ -238,7 +238,7 @@ export default function CurriculumSection() {
 
           {/* Outcome Section */}
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between pt-12 gap-6">
-            <div className="bg-white/5 border border-white/[0.27] rounded-[15px] px-[21px] py-[13px] flex flex-col gap-4 w-full md:w-[449px]">
+            <div className="bg-white/5 border border-white/[0.27] rounded-[20px] px-[21px] py-[13px] flex flex-col gap-4 w-full md:w-[449px]">
               <h4 className="font-[family-name:var(--font-montserrat)] font-semibold text-[18px] leading-[1.5] text-white">
                 Outcome
               </h4>
@@ -263,7 +263,7 @@ export default function CurriculumSection() {
             {bonusItems[0].map((item, i) => (
               <StaggerItem
                 key={i}
-                className="bg-white/5 border border-white/[0.27] rounded-[15px] px-[21px] py-[13px]"
+                className="bg-white/5 border border-white/[0.27] rounded-[20px] px-[21px] py-[13px]"
               >
                 <p className="font-[family-name:var(--font-inter)] text-base leading-[1.5] text-[#fd7933]">
                   {item}
@@ -276,7 +276,7 @@ export default function CurriculumSection() {
             {bonusItems[1].map((item, i) => (
               <StaggerItem
                 key={i}
-                className="bg-white/5 border border-white/[0.27] rounded-[15px] px-[21px] py-[13px]"
+                className="bg-white/5 border border-white/[0.27] rounded-[20px] px-[21px] py-[13px]"
               >
                 <p className="font-[family-name:var(--font-inter)] text-base leading-[1.5] text-[#fd7933]">
                   {item}

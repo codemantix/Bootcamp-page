@@ -30,21 +30,21 @@ export default function AboutSection() {
           className="relative w-full max-w-[450px] lg:max-w-none lg:w-[553px] h-[420px] md:h-[550px] lg:h-[710px] shrink-0 mx-auto lg:mx-0"
         >
           {/* Top image */}
-          <div className="absolute top-[25px] left-0 w-[65%] md:w-[68%] lg:w-[376px] aspect-square lg:h-[366px] rounded-[15px] overflow-hidden border-[5px] border-[#98a4c9]">
+          <div className="absolute top-[25px] left-0 w-[65%] md:w-[68%] lg:w-[376px] aspect-square lg:h-[366px] rounded-[20px] overflow-hidden border-[5px] border-[#98a4c9]">
             <Image
               src="/bootcamp landing page design/bootcamp landing page design/Rectangle 14.png"
               alt="Virtual classes and tutoring"
               fill
-              className="object-cover rounded-[15px]"
+              className="object-cover"
             />
           </div>
           {/* Bottom image */}
-          <div className="absolute top-[40%] left-[30%] lg:top-[280px] lg:left-[164px] w-[65%] md:w-[68%] lg:w-[376px] aspect-square lg:h-[366px] rounded-[15px] overflow-hidden border-[5px] border-[#98a4c9]">
+          <div className="absolute top-[40%] left-[30%] lg:top-[280px] lg:left-[164px] w-[65%] md:w-[68%] lg:w-[376px] aspect-square lg:h-[366px] rounded-[20px] overflow-hidden border-[5px] border-[#98a4c9]">
             <Image
               src="/bootcamp landing page design/bootcamp landing page design/Rectangle 13.png"
               alt="Remote learning session"
               fill
-              className="object-cover rounded-[15px]"
+              className="object-cover"
             />
           </div>
           {/* Tag - Virtual classes */}
@@ -86,7 +86,7 @@ export default function AboutSection() {
             {features.map((feature, index) => (
               <BounceCard
                 key={index}
-                className="flex items-start gap-4 p-[25px] rounded-[22px] border border-[rgba(0,0,0,0.05)] bg-[rgba(233,235,243,0.35)] shadow-[0_4px_4px_rgba(0,0,0,0.05)]"
+                className="flex items-start gap-4 p-[25px] rounded-[20px] border border-[rgba(0,0,0,0.05)] bg-[rgba(233,235,243,0.35)] shadow-[0_4px_4px_rgba(0,0,0,0.05)]"
               >
                 <div className="w-10 h-10 rounded-[18px] bg-[#98a4c9] flex items-center justify-center shrink-0">
                   <span className="text-[#11204c] text-lg leading-[28px]">◈</span>

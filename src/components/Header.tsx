@@ -26,7 +26,7 @@ export default function Header() {
         <Link href="https://forms.gle/mekayJoQZjgNDJ4x5" target="_blank" rel="noopener noreferrer" className="mb-[10px] hidden h-[46px] items-center justify-center gap-2 rounded-full border border-[#4b61a1] bg-[#1e3a8a] px-[25px] font-[family-name:var(--font-montserrat)] text-[14px] font-bold leading-5 text-white shadow-[0_5px_13.25px_rgba(27,53,126,.68)] sm:flex">Apply Now <span>→</span></Link>
         <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation" className="grid h-11 w-11 place-items-center rounded-full border border-[#dce3f3] text-xl text-[#1e3a8a] lg:hidden">{open ? "×" : "☰"}</button>
       </div>
-      {open && <nav className="absolute left-5 right-5 top-[82px] rounded-2xl border border-[#e5eaf7] bg-white p-4 shadow-xl md:left-10 md:right-10 md:top-[104px] lg:hidden">{navLinks.map((link) => <Link key={link.label} href={link.href} onClick={() => setOpen(false)} className="block border-b border-[#edf0f7] px-2 py-3 font-[family-name:var(--font-montserrat)] text-sm font-bold text-[#1b1b1b] last:border-0">{link.label}</Link>)}</nav>}
+      {open && <nav className="absolute left-5 right-5 top-[82px] overflow-hidden rounded-[20px] border border-[#e5eaf7] bg-white p-4 shadow-xl md:left-10 md:right-10 md:top-[104px] lg:hidden">{navLinks.map((link) => <Link key={link.label} href={link.href} onClick={() => setOpen(false)} className="block border-b border-[#edf0f7] px-2 py-3 font-[family-name:var(--font-montserrat)] text-sm font-bold text-[#1b1b1b] last:border-0">{link.label}</Link>)}</nav>}
     </header>
   );
 }

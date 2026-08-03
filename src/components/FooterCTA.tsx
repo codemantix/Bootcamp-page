@@ -17,7 +17,7 @@ export default function FooterCTA() {
 
         {/* CTA Content - Glassmorphism Card */}
         <div className="absolute inset-0 flex items-center justify-center px-6">
-          <div className="backdrop-blur-[5.35px] bg-[rgba(233,235,243,0.21)] rounded-[29px] shadow-[0_4px_4px_rgba(0,0,0,0.25)] p-[32px] w-full max-w-[896px] flex flex-col items-center">
+          <div className="backdrop-blur-[5.35px] bg-[rgba(233,235,243,0.21)] rounded-[20px] overflow-hidden shadow-[0_4px_4px_rgba(0,0,0,0.25)] p-[32px] w-full max-w-[896px] flex flex-col items-center">
             {/* Heading */}
             <h2 className="font-[family-name:var(--font-montserrat)] font-bold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.25] lg:leading-[60px] tracking-[-0.96px] text-white text-center pt-3">
               Ready to start your tech journey?
