@@ -2,25 +2,33 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1b1b1b;
+  --primary: #1e3a8a;
+  --primary-light: #4b61a1;
+  --footer-bg: #121829;
+  --body-text: #383838;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-footer: var(--footer-bg);
+  --color-body-text: var(--body-text);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-montserrat);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+::selection { background: #fd7933; color: white; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
