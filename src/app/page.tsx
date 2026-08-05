@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="flex w-full max-w-full flex-col overflow-x-clip bg-white">
       <Header />
-      <main className="w-full min-w-0 max-w-full overflow-x-clip">
+      <main className="w-full min-w-0 max-w-full overflow-x-clip pt-0">
         <HeroSection />
         <AboutSection />
         <CoursesSection />

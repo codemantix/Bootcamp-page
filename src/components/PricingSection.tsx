@@ -36,7 +36,7 @@ export default function PricingSection() {
         <div className="flex flex-col md:flex-row gap-8 mt-[101px] items-center">
           {/* Card 1 - Early Bird (filled button) */}
           <div
-            className="premium-card relative bg-[rgba(233,235,243,0.35)] rounded-[20px] p-[28px] shadow-[0_4px_4px_rgba(0,0,0,0.05)] w-full md:w-[400px] h-auto md:h-[551px] flex flex-col justify-between overflow-hidden"
+            className="relative bg-[rgba(233,235,243,0.35)] rounded-[20px] p-[28px] shadow-[0_4px_4px_rgba(0,0,0,0.05)] w-full md:w-[400px] h-auto md:h-[551px] flex flex-col justify-between overflow-hidden"
           >
             {/* Top Section */}
             <div className="border-b-2 border-[#f3f3f3] pb-[40px] pt-[12px] flex flex-col gap-5">
@@ -84,14 +84,14 @@ export default function PricingSection() {
             </div>
 
             {/* CTA Button - Filled */}
-            <a href="https://forms.gle/mekayJoQZjgNDJ4x5" target="_blank" rel="noopener noreferrer" className="button-shine w-full h-[46px] mt-6 md:mt-0 bg-[#1e3a8a] border border-[#4b61a1] text-white font-[family-name:var(--font-montserrat)] font-semibold text-[14px] leading-[20px] rounded-full shadow-[0_5px_13.25px_rgba(27,53,126,0.68)] hover:opacity-90 transition-opacity cursor-pointer flex items-center justify-center gap-2">
+            <a href="https://forms.gle/mekayJoQZjgNDJ4x5" target="_blank" rel="noopener noreferrer" className="w-full h-[46px] mt-6 md:mt-0 bg-[#1e3a8a] border border-[#4b61a1] text-white font-[family-name:var(--font-montserrat)] font-semibold text-[14px] leading-[20px] rounded-full shadow-[0_5px_13.25px_rgba(27,53,126,0.68)] hover:opacity-90 transition-opacity cursor-pointer flex items-center justify-center gap-2">
               <span>Secure Your Spot</span>
               <span>→</span>
             </a>
           </div>
 
           {/* Card 2 - Standard (outline button) */}
-          <div className="premium-card relative bg-[rgba(233,235,243,0.35)] rounded-[20px] p-[28px] shadow-[0_4px_4px_rgba(0,0,0,0.05)] w-full md:w-[400px] h-auto md:h-[551px] flex flex-col justify-between overflow-hidden">
+          <div className="relative bg-[rgba(233,235,243,0.35)] rounded-[20px] p-[28px] shadow-[0_4px_4px_rgba(0,0,0,0.05)] w-full md:w-[400px] h-auto md:h-[551px] flex flex-col justify-between overflow-hidden">
             {/* Standard Pill Tag */}
             <div className="absolute top-[8px] right-[28px] bg-[#11204c] border border-[#e9ebf3] rounded-[43px] px-2 py-1 flex items-center justify-center">
               <span className="font-[family-name:var(--font-inter)] font-medium text-[10px] leading-[20px] text-white">
@@ -145,7 +145,7 @@ export default function PricingSection() {
             </div>
 
             {/* CTA Button - Outline */}
-            <a href="https://forms.gle/mekayJoQZjgNDJ4x5" target="_blank" rel="noopener noreferrer" className="w-full h-[46px] mt-6 md:mt-0 border border-[#4b61a1] text-[#1e3a8a] font-[family-name:var(--font-montserrat)] font-semibold text-[14px] leading-[20px] rounded-full shadow-[0_5px_26.5px_rgba(27,53,126,0.68)] hover:bg-[#1e3a8a] hover:text-white transition-colors cursor-pointer flex items-center justify-center gap-2">
+            <a href="https://forms.gle/mekayJoQZjgNDJ4x5" target="_blank" rel="noopener noreferrer" className="w-full h-[46px] mt-6 md:mt-0 border border-[#4b61a1] text-[#1e3a8a] font-[family-name:var(--font-montserrat)] font-semibold text-[14px] leading-[20px] rounded-full  hover:bg-[#1e3a8a] hover:text-white transition-colors cursor-pointer flex items-center justify-center gap-2">
               <span>Secure Your Spot</span>
               <span>→</span>
             </a>

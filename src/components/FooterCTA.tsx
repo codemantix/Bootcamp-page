@@ -13,7 +13,7 @@ export default function FooterCTA() {
           className="object-cover"
         />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[rgba(0,6,22,0.86)]" />
+        <div className="absolute inset-0 bg-[rgba(0,6,22,0.65)]" />
 
         {/* CTA Content - Glassmorphism Card */}
         <div className="absolute inset-0 flex items-center justify-center px-6">
@@ -51,11 +51,11 @@ export default function FooterCTA() {
               <img
                 src="/bootcamp landing page design/bootcamp landing page design/codemantix logo png 2.png"
                 alt="Codemantix Collective"
-                className="h-[77px] w-[222px] object-contain"
+                className="h-[77px] w-[192px] object-contain"
               />
               {/* Description & Social */}
               <div className="flex flex-col gap-2">
-                <p className="font-[family-name:var(--font-montserrat)] font-bold text-[14px] leading-[24px] tracking-[0.2px] text-white">
+                <p className="font-[family-name:var(--font-montserrat)] font-bold text-[13px] leading-[24px] tracking-[0.2px] text-white">
                   Codemantix Academy is the educational platform of Codemantix
                   Collective, focused on practical technology training and
                   structured learning for developers and innovators.
@@ -113,10 +113,10 @@ export default function FooterCTA() {
             </div>
 
             {/* Right - Links */}
-            <div className="flex flex-wrap gap-5 flex-1">
+            <div className="flex flex-wrap gap-10 lg:gap-[20px] flex-1">
               {/* Quick Links */}
-              <div className="flex flex-col gap-5 w-[128px]">
-                <h4 className="font-[family-name:var(--font-inter)] font-semibold text-[16px] leading-[28px] text-white">
+              <div className="flex flex-col gap-3">
+                <h4 className="font-[family-name:var(--font-inter)] font-semibold text-[14px] leading-[28px] text-white">
                   Quick Links:
                 </h4>
                 <ul className="flex flex-col gap-2">
@@ -125,7 +125,7 @@ export default function FooterCTA() {
                       <li key={link}>
                         <Link
                           href="#"
-                          className="font-[family-name:var(--font-inter)] text-[16px] leading-[24px] text-white hover:opacity-80 transition-opacity"
+                          className="font-[family-name:var(--font-inter)] text-[14px] leading-[24px] text-white hover:opacity-80 transition-opacity"
                         >
                           {link}
                         </Link>
@@ -136,8 +136,8 @@ export default function FooterCTA() {
               </div>
 
               {/* Resources */}
-              <div className="flex flex-col gap-5">
-                <h4 className="font-[family-name:var(--font-inter)] font-semibold text-[16px] leading-[28px] text-white">
+              <div className="flex flex-col gap-3">
+                <h4 className="font-[family-name:var(--font-inter)] font-semibold text-[14px] leading-[28px] text-white">
                   Resources:
                 </h4>
                 <ul className="flex flex-col gap-2">
@@ -150,7 +150,7 @@ export default function FooterCTA() {
                     <li key={link}>
                       <Link
                         href="#"
-                        className="font-[family-name:var(--font-inter)] text-[16px] leading-[24px] text-white hover:opacity-80 transition-opacity"
+                        className="font-[family-name:var(--font-inter)] text-[14px] leading-[24px] text-white hover:opacity-80 transition-opacity"
                       >
                         {link}
                       </Link>
@@ -160,8 +160,8 @@ export default function FooterCTA() {
               </div>
 
               {/* Legal */}
-              <div className="flex flex-col gap-5 w-[128px]">
-                <h4 className="font-[family-name:var(--font-inter)] font-semibold text-[16px] leading-[28px] text-white">
+              <div className="flex flex-col gap-3">
+                <h4 className="font-[family-name:var(--font-inter)] font-semibold text-[14px] leading-[28px] text-white">
                   Legal:
                 </h4>
                 <ul className="flex flex-col gap-2">
@@ -170,7 +170,7 @@ export default function FooterCTA() {
                       <li key={link}>
                         <Link
                           href="#"
-                          className="font-[family-name:var(--font-inter)] text-[16px] leading-[24px] text-white hover:opacity-80 transition-opacity"
+                          className="font-[family-name:var(--font-inter)] text-[14px] leading-[24px] text-white hover:opacity-80 transition-opacity"
                         >
                           {link}
                         </Link>
@@ -184,7 +184,7 @@ export default function FooterCTA() {
 
           {/* Bottom Bar */}
           <div className="border-t-4 border-[#c5d4fe] mt-8 h-[53px] flex items-center justify-center overflow-hidden">
-            <p className="font-[family-name:var(--font-inter)] text-[18px] leading-[28px] text-white">
+            <p className="font-[family-name:var(--font-inter)] text-[11px] leading-[28px] text-white">
               All Rights Reserved 2026
             </p>
           </div>

@@ -73,11 +73,11 @@ export default function AboutSection() {
             </span>
           </div>
           {/* Heading */}
-          <h2 className="font-[family-name:var(--font-montserrat)] font-bold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] lg:leading-[60px] tracking-[-0.96px] text-[#1b1b1b] mt-2">
+          <h2 className="font-[family-name:var(--font-montserrat)] font-bold text-[28px] md:text-[35px] lg:text-[48px] leading-[1.2] lg:leading-[60px] tracking-[-0.96px] text-[#1b1b1b] mt-2">
             Learn by building. Not by watching.
           </h2>
           {/* Subtext */}
-          <p className="font-[family-name:var(--font-inter)] font-semibold text-base md:text-lg leading-[1.5] text-[var(--body-text)] mt-4 mb-8 max-w-[672px]">
+          <p className="font-[family-name:var(--font-inter)] font-semibold text-[13px] md:text-[13px] leading-[1.5] text-[var(--body-text)] mt-4 mb-8 max-w-[672px]">
             Most bootcamps hand you pre-recorded videos and hope you keep up. Codemantix Collective is different , small, live cohorts led by working developers, designers, and analysts, built around real client-style projects instead of toy exercises.
           </p>
 
@@ -86,16 +86,16 @@ export default function AboutSection() {
             {features.map((feature, index) => (
               <BounceCard
                 key={index}
-                className="flex items-start gap-4 p-[25px] rounded-[20px] border border-[rgba(0,0,0,0.05)] bg-[rgba(233,235,243,0.35)] shadow-[0_4px_4px_rgba(0,0,0,0.05)]"
+                className="flex items-start gap-4 p-[20px] rounded-[20px] border border-[rgba(0,0,0,0.05)] bg-[rgba(233,235,243,0.35)] shadow-[0_4px_4px_rgba(0,0,0,0.05)]"
               >
                 <div className="w-10 h-10 rounded-[18px] bg-[#98a4c9] flex items-center justify-center shrink-0">
-                  <span className="text-[#11204c] text-lg leading-[28px]">◈</span>
+                  <span className="text-[#11204c] text-[14px] leading-[28px]">◈</span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-[family-name:var(--font-montserrat)] font-bold text-[20px] leading-[1.2] text-[#1b1b1b]">
+                  <h3 className="font-[family-name:var(--font-montserrat)] font-bold text-[14px] leading-[1.2] text-[#1b1b1b]">
                     {feature.title}
                   </h3>
-                  <p className="font-[family-name:var(--font-inter)] text-base leading-[1.5] text-[var(--body-text)] mt-2">
+                  <p className="font-[family-name:var(--font-inter)] text-[13px] leading-[1.5] text-[var(--body-text)] mt-2">
                     {feature.description}
                   </p>
                 </div>

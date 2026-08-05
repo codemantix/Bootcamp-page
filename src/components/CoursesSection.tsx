@@ -100,12 +100,12 @@ function CourseCard({ course }: { course: Course }) {
 export default function CoursesSection() {
   return (
     <section id="courses" className="w-full bg-[#e9ebf3] py-16 md:py-[79px] lg:mb-8 lg:h-[1745px]">
-      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10 xl:px-0">
-        <Reveal className="flex max-w-[584px] flex-col items-start">
+      <div className="mx-auto w-full max-w-[1000px] px-6 md:px-10 xl:px-0">
+        <Reveal className="flex  max-w-[584px] flex-col items-start">
           <div className="border-b-[3px] border-[#0d183a] pb-[7px] pt-1">
             <span className="font-[family-name:var(--font-montserrat)] text-xs font-bold uppercase leading-4 tracking-[1.2px] text-[#1b357e]">Courses</span>
           </div>
-          <h2 className="mt-2 font-[family-name:var(--font-montserrat)] text-[32px] font-bold leading-[1.25] tracking-[-0.96px] text-[#1b1b1b] md:text-[40px] lg:text-5xl lg:leading-[60px]">Pick a path. Commit fully.</h2>
+          <h2 className="mt-2 font-[family-name:var(--font-montserrat)] text-[30px] font-bold leading-[1.25] tracking-[-0.96px] text-[#1b1b1b] md:text-[40px] lg:text-5xl lg:leading-[60px]">Pick a path. Commit fully.</h2>
           <p className="mt-4 font-[family-name:var(--font-inter)] text-base font-semibold leading-6 text-[#383838] md:text-lg md:leading-[27px]">Three focused tracks. Same mentor-led model, tailored curriculum, real outcomes.</p>
         </Reveal>
 

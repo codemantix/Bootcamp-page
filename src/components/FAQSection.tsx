@@ -61,7 +61,7 @@ export default function FAQSection() {
                 key={index}
                 layout
                 initial={reduced ? false : { opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} whileHover={reduced ? undefined : { x: -3 }} transition={{ layout: { type: "spring", stiffness: 320, damping: 30 }, delay: reduced ? 0 : index * .05 }}
-                className="premium-card bg-white border border-[rgba(0,0,0,0.05)] rounded-[20px] shadow-[0_4px_4px_rgba(0,0,0,0.05)] overflow-hidden cursor-pointer"
+                className="bg-white border border-[rgba(0,0,0,0.05)] rounded-[20px] shadow-[0_4px_4px_rgba(0,0,0,0.05)] overflow-hidden cursor-pointer"
                 onClick={() =>
                   setOpenIndex(openIndex === index ? -1 : index)
                 }
