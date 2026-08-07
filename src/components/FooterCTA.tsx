@@ -29,7 +29,7 @@ export default function FooterCTA() {
                 you&apos;re starting from — we&apos;ll help you find the right track.
               </p>
               <a
-                href="#apply"
+                href="https://forms.gle/mekayJoQZjgNDJ4x5"
                 className="h-[46px] px-[25px] py-[13px] bg-[#1e3a8a] border border-[#4b61a1] text-white font-[family-name:var(--font-montserrat)] font-semibold text-[14px] leading-[20px] rounded-full shadow-[0_5px_13.25px_rgba(27,53,126,0.68)] hover:opacity-90 transition-opacity flex items-center gap-2"
               >
                 <span>Start Your Application</span>

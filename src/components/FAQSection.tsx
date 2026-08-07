@@ -93,7 +93,7 @@ export default function FAQSection() {
           <p className="text-center mt-8 font-[family-name:var(--font-inter)] font-semibold text-[14px] leading-[20px] text-[#091a49]">
             Still have questions?{" "}
             <a
-              href="#apply"
+              href="https://forms.gle/mekayJoQZjgNDJ4x5"
               className="underline hover:opacity-80"
             >
               Apply and we&apos;ll talk →

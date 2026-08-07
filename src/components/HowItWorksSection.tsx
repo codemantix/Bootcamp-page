@@ -59,27 +59,29 @@ export default function HowItWorksSection() {
           </div>
 
           {/* Steps with numbered circles */}
-          <div className="flex gap-[20px] items-center px-0 lg:px-[40px] mt-8 lg:mt-0 h-auto lg:h-[701px]">
+          <div className="flex gap-[20px] px-0 lg:px-[40px] mt-8 lg:mt-0">
             {/* Number column with connecting lines */}
-            <div className="flex flex-col items-center shrink-0 h-[557px] justify-center w-[52px]">
+            <div className="flex flex-col items-center shrink-0 w-[52px]">
               {steps.map((step, index) => (
-                <div key={step.number} className="flex flex-col items-center">
-                  {/* Numbered circle */}
-                  <div className="w-[48.4px] h-[48.4px] rounded-[31.9px] border-[4.4px] border-[#1e3a8a] bg-white flex items-center justify-center p-[11px]">
-                    <span className="font-[family-name:var(--font-inter)] font-semibold text-[19.8px] leading-[1.5] text-[#1e3a8a]">
-                      {step.number}
-                    </span>
+                <div key={step.number} className="flex flex-col items-center flex-1">
+                  {/* Numbered circle - centered in each step's space */}
+                  <div className="flex-1 flex items-center">
+                    <div className="w-[48.4px] h-[48.4px] rounded-[31.9px] border-[4.4px] border-[#1e3a8a] bg-white flex items-center justify-center p-[11px]">
+                      <span className="font-[family-name:var(--font-inter)] font-semibold text-[19.8px] leading-[1.5] text-[#1e3a8a]">
+                        {step.number}
+                      </span>
+                    </div>
                   </div>
-                  {/* Dashed connector line */}
+                  {/* Dashed connector line between circles */}
                   {index < steps.length - 1 && (
-                    <div className="w-0 h-[65px] border-l-[3.3px] border-dashed border-[#1e3a8a] opacity-30" />
+                    <div className="w-0 h-[50px] border-l-[3.3px] border-dashed border-[#1e3a8a] opacity-30" />
                   )}
                 </div>
               ))}
             </div>
 
             {/* Content column - step cards */}
-            <div className="flex flex-col gap-4 flex-1 w-[464px] max-w-full">
+            <div className="flex flex-col gap-4 flex-1 max-w-[464px]">
               {steps.map((step) => (
                 <div
                   key={step.number}
