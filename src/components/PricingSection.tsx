@@ -103,14 +103,16 @@ export default function PricingSection() {
             <div className="border-b-2 border-[#f3f3f3] pb-[40px] pt-[12px] flex flex-col gap-5">
               <div className="flex flex-col gap-2">
                 <p className="font-[family-name:var(--font-montserrat)] font-bold text-[12px] leading-[16px] tracking-[1.2px] uppercase text-[#687bb1]">
-                  Early Bird
+                  Regular
                 </p>
                 <p className="font-[family-name:var(--font-montserrat)] font-bold text-[20px] leading-[1.2] text-[var(--body-text)]">
-                  Early Registration
+                </p>
+                <p className="font-[family-name:var(--font-montserrat)] font-bold text-[20px] leading-[1.2] text-[var(--body-text)]">
+                  Regular Registration
                 </p>
               </div>
               <p className="font-[family-name:var(--font-inter)] font-bold text-[50px] leading-[60px] tracking-[-0.96px] text-[#1b1b1b]">
-                ₦40,000
+                ₦50,000
               </p>
               <p className="font-[family-name:var(--font-inter)] font-medium text-[14px] leading-[20px] text-[#4a556c]">
                 Everything you need to go from beginner to job-ready. One price,

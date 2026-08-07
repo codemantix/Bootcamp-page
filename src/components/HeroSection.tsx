@@ -90,18 +90,18 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-col items-center justify-center gap-3 pt-8 sm:flex-row">
             <SpringLink
+              href="#courses"
+              className="flex h-[46px] items-center justify-center gap-2 rounded-full border border-white bg-transparent px-[25px] font-[family-name:var(--font-montserrat)] text-[14px] font-bold leading-5 text-white"
+            >
+              See what you&apos;ll learn <span>→</span>
+            </SpringLink>
+            <SpringLink
               href="https://forms.gle/mekayJoQZjgNDJ4x5"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-[46px] items-center justify-center gap-2 rounded-full border border-[#4b61a1] bg-[#1e3a8a] px-[25px] font-[family-name:var(--font-montserrat)] text-[14px] font-bold leading-5 text-white shadow-[0_5px_13.25px_rgba(27,53,126,.68)]"
             >
               Apply Now <span>→</span>
-            </SpringLink>
-            <SpringLink
-              href="#courses"
-              className="flex h-[46px] items-center justify-center gap-2 rounded-full border border-white bg-transparent px-[25px] font-[family-name:var(--font-montserrat)] text-[14px] font-bold leading-5 text-white"
-            >
-              See what you&apos;ll learn <span>→</span>
             </SpringLink>
           </div>
         </Reveal>

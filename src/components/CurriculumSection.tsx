@@ -229,7 +229,7 @@ export default function CurriculumSection() {
               </div>
 
               {/* CTA Button */}
-              <a href="https://forms.gle/mekayJoQZjgNDJ4x5" target="_blank" rel="noopener noreferrer" className="border border-[#fd7933] text-[#fd7933] font-[family-name:var(--font-montserrat)] font-semibold text-[14px] leading-[20px] h-[46px] px-[25px] py-[13px] rounded-full shadow-[0_5px_26.5px_rgba(27,53,126,0.68)] hover:bg-[#fd7933] hover:text-white transition-colors cursor-pointer w-fit flex items-center gap-2">
+              <a href="https://forms.gle/mekayJoQZjgNDJ4x5" target="_blank" rel="noopener noreferrer" className="border border-[#fd7933] text-[#fd7933] font-[family-name:var(--font-montserrat)] font-semibold text-[11px] sm:text-[13px] leading-[20px] h-[46px] px-[12px] sm:px-[25px] py-[13px] rounded-full shadow-[0_5px_26.5px_rgba(27,53,126,0.68)] hover:bg-[#fd7933] hover:text-white transition-colors cursor-pointer w-fit flex items-center gap-2 whitespace-nowrap">
                 <span>Apply Now To View Complete Modules</span>
                 <span>→</span>
               </a>
@@ -263,9 +263,9 @@ export default function CurriculumSection() {
             {bonusItems[0].map((item, i) => (
               <StaggerItem
                 key={i}
-                className="bg-white/5 border border-white/[0.27] rounded-[20px] px-[21px] py-[13px]"
+                className="bg-white/5 border border-white/[0.27] rounded-[20px] px-[14px] sm:px-[21px] py-[13px]"
               >
-                <p className="font-[family-name:var(--font-inter)] text-base leading-[1.5] text-[#fd7933]">
+                <p className="font-[family-name:var(--font-inter)] text-[14px] sm:text-base leading-[1.5] text-[#fd7933] whitespace-nowrap">
                   {item}
                 </p>
               </StaggerItem>
@@ -276,9 +276,9 @@ export default function CurriculumSection() {
             {bonusItems[1].map((item, i) => (
               <StaggerItem
                 key={i}
-                className="bg-white/5 border border-white/[0.27] rounded-[20px] px-[21px] py-[13px]"
+                className="bg-white/5 border border-white/[0.27] rounded-[20px] px-[14px] sm:px-[21px] py-[13px]"
               >
-                <p className="font-[family-name:var(--font-inter)] text-base leading-[1.5] text-[#fd7933]">
+                <p className="font-[family-name:var(--font-inter)] text-[14px] sm:text-base leading-[1.5] text-[#fd7933] whitespace-nowrap">
                   {item}
                 </p>
               </StaggerItem>
