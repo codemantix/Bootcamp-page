@@ -49,7 +49,7 @@ export default function FooterCTA() {
               {/* Logo */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/bootcamp landing page design/bootcamp landing page design/codemantix logo png 2.png"
+                src="/bootcamp landing page design/bootcamp landing page design/White Logo.png"
                 alt="Codemantix Collective"
                 className="h-[77px] w-[192px] object-contain"
               />
