@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BounceCard, Reveal, SpringLink, Stagger } from "./MotionPrimitives";
+import { Reveal, SpringLink, Stagger, StaggerItem } from "./MotionPrimitives";
 
 type Course = {
   title: string;
@@ -11,7 +11,6 @@ type Course = {
   height: "tall" | "short";
 };
 
-const assetRoot = "/bootcamp landing page design/bootcamp landing page design/";
 const applicationUrl = "https://forms.gle/mekayJoQZjgNDJ4x5";
 
 const courses: Course[] = [
@@ -24,7 +23,7 @@ const courses: Course[] = [
       "Build and Deploy a Real Website",
     ],
     outcome: "A live, deployed project in your portfolio.",
-    image: "image 13 (1).png",
+    image: "/images/courses/software-engineering.jpg",
     height: "tall",
   },
   {
@@ -35,8 +34,8 @@ const courses: Course[] = [
       "Design a cohesive brand and visual identity system",
       "Produce assets for both print and digital use",
     ],
-    outcome: "A data project with visualizations and a business recommendation, built on real data..",
-    image: "image 15.png",
+    outcome: "A complete branding identity and visual asset portfolio ready for clients.",
+    image: "/images/courses/graphic-design.jpg",
     height: "short",
   },
   {
@@ -48,7 +47,7 @@ const courses: Course[] = [
       "Using Data for Business Decisions",
     ],
     outcome: "A data project with visualizations and a business recommendation, built on real data..",
-    image: "image 14 (1).png",
+    image: "/images/courses/data-analytics.jpg",
     badge: "Beginner",
     height: "tall",
   },
@@ -61,7 +60,7 @@ const courses: Course[] = [
       "Design Systems and Prototyping",
     ],
     outcome: "A complete case study you can show clients or employers.",
-    image: "image 14.png",
+    image: "/images/courses/uiux-design.jpg",
     badge: "Beginner",
     height: "short",
   },
@@ -71,8 +70,8 @@ function CourseCard({ course }: { course: Course }) {
   return (
     <article className={`flex min-h-[640px] flex-col rounded-[20px] bg-white p-3 shadow-[0_4px_10px_rgba(0,0,0,0.05)] lg:min-h-0 ${course.height === "tall" ? "lg:h-[676px]" : "lg:h-[671px]"}`}>
       <div className={`relative h-[220px] w-full shrink-0 overflow-hidden rounded-[20px] sm:h-[251px] ${course.title === "UI/UX Design Fundamentals" ? "lg:h-[246px]" : ""}`}>
-        <Image src={`${assetRoot}${course.image}`} alt={`${course.title} course`} fill sizes="(min-width: 1024px) 561px, (min-width: 768px) 45vw, 100vw" className="object-cover" />
-        {course.badge && <span className="absolute left-[8.5px] top-[5px] flex h-9 items-center rounded-full bg-[rgba(30,58,138,0.1)] px-[25px] font-[family-name:var(--font-inter)] text-xs font-semibold leading-4 text-black">{course.badge}</span>}
+        <Image src={course.image} alt={`${course.title} course`} fill sizes="(min-width: 1024px) 561px, (min-width: 768px) 45vw, 100vw" className="object-cover" />
+        {/* {course.badge && <span className="absolute left-[8.5px] top-[5px] flex h-9 items-center rounded-full bg-[rgba(255, 255, 255, 0.1)] px-[25px] font-[family-name:var(--font-inter)] text-xs font-semibold leading-4 text-white">{course.badge}</span>} */}
       </div>
 
       <div className="flex flex-1 flex-col px-4 pb-4 pt-8">
@@ -101,7 +100,7 @@ export default function CoursesSection() {
   return (
     <section id="courses" className="w-full bg-[#e9ebf3] py-16 md:py-[79px] lg:mb-8 lg:h-[1745px]">
       <div className="mx-auto w-full max-w-[1000px] px-6 md:px-10 xl:px-0">
-        <Reveal className="flex  max-w-[584px] flex-col items-start">
+        <Reveal className="flex   flex-col items-start">
           <div className="border-b-[3px] border-[#0d183a] pb-[7px] pt-1">
             <span className="font-[family-name:var(--font-montserrat)] text-xs font-bold uppercase leading-4 tracking-[1.2px] text-[#1b357e]">Courses</span>
           </div>
@@ -110,7 +109,11 @@ export default function CoursesSection() {
         </Reveal>
 
         <Stagger className="mt-10 grid min-w-0 grid-cols-1 gap-[10px] p-[10px] md:grid-cols-2">
-          {courses.map((course) => <BounceCard key={course.title} className="min-w-0"><CourseCard course={course} /></BounceCard>)}
+          {courses.map((course) => (
+            <StaggerItem key={course.title} className="min-w-0">
+              <CourseCard course={course} />
+            </StaggerItem>
+          ))}
         </Stagger>
       </div>
     </section>

@@ -109,7 +109,6 @@ const bonusItems = [
     "AI tools for your chosen field",
     "Simple AI automation",
     "Portfolio development",
-    "Portfolio development",
     "Career & freelance preparation",
   ],
   [

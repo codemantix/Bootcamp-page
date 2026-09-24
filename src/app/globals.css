@@ -30,6 +30,59 @@ body {
 html, body { width: 100%; max-width: 100%; overflow-x: clip; }
 ::selection { background: #fd7933; color: white; }
 
+@keyframes hero-arc-rotate {
+  0% {
+    transform: rotate(-3.5deg);
+  }
+  50% {
+    transform: rotate(3.5deg);
+  }
+  100% {
+    transform: rotate(-3.5deg);
+  }
+}
+
+.animate-hero-rotate {
+  animation: hero-arc-rotate 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes hero-card-float-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes hero-card-float-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-1deg);
+  }
+}
+
+.animate-card-float-1 {
+  animation: hero-card-float-1 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-card-float-2 {
+  animation: hero-card-float-2 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.pause-hover:hover .animate-hero-rotate,
+.pause-hover:hover .animate-card-float-1,
+.pause-hover:hover .animate-card-float-2 {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .animate-hero-rotate, .animate-card-float-1, .animate-card-float-2 { animation: none !important; }
 }
+

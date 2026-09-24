@@ -1,131 +1,185 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useCallback } from "react";
-import { Reveal, SpringLink } from "./MotionPrimitives";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { Reveal } from "./MotionPrimitives";
 
-const base = "/bootcamp landing page design/bootcamp landing page design/";
-
-const carouselImages = [
-  { src: "Rectangle 2.png", alt: "Programmer working at multiple monitors" },
-  { src: "Rectangle 3.png", alt: "Students celebrating with a high five" },
-  { src: "Rectangle 4.png", alt: "Remote video class" },
-  { src: "Rectangle 7.png", alt: "Person reclining beside a laptop" },
-  { src: "Rectangle 8.png", alt: "Designer drawing with a stylus" },
-  { src: "Rectangle 9.png", alt: "People collaborating around a table" },
-  { src: "Rectangle 10.png", alt: "Person using a mobile device" },
+// 8 newly generated high-quality bootcamp photos
+const archCards = [
+  { src: "/images/orbit/photo-1.jpg", alt: "Students celebrating high five" },
+  { src: "/images/orbit/photo-2.jpg", alt: "Developer coding with multiple monitors" },
+  { src: "/images/orbit/photo-3.jpg", alt: "UI/UX designer sketching wireframes on tablet" },
+  { src: "/images/orbit/photo-4.jpg", alt: "Students collaborating around table with laptops" },
+  { src: "/images/orbit/photo-5.jpg", alt: "Student attending remote interactive class" },
+  { src: "/images/orbit/photo-6.jpg", alt: "Software engineer sketching architecture on glass board" },
+  { src: "/images/orbit/photo-7.jpg", alt: "Senior tech mentor guiding student in code review" },
+  { src: "/images/orbit/photo-8.jpg", alt: "Focused developer coding on laptop at desk" },
 ];
 
-const keyMetrics = [
-  {
-    icon: (
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 8H6C4.9 8 4 8.9 4 10V20H20V10C20 8.9 19.1 8 18 8ZM18 18H6V12H18V18ZM10 13H8V15H10V13ZM14 13H12V15H14V13ZM7 3H9V5H7V3ZM15 3H17V5H15V3ZM12 6C13.1 6 14 5.1 14 4C14 2.9 13.1 2 12 2C10.9 2 10 2.9 10 4C10 5.1 10.9 6 12 6Z" fill="white"/>
-      </svg>
-    ),
-    label: "VIRTUAL CLASSES AND TUTORING",
-  },
-  {
-    icon: (
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM8.46 14.45L7.1 13.83C6.55 13.59 6.55 12.81 7.1 12.56L7.83 12.23C8.16 12.08 8.39 11.77 8.43 11.42C8.51 10.73 8.2 10.04 7.6 9.63L7.1 9.29C6.63 8.97 6.72 8.25 7.25 8.06L8.63 7.57C9.12 7.4 9.65 7.64 9.84 8.12C10.08 8.74 10.73 9.12 11.39 8.99L11.89 8.89C12.31 8.81 12.59 8.42 12.52 8C12.44 7.51 12.76 7.05 13.25 6.95L14.06 6.79C14.56 6.69 15.05 7 15.16 7.5C15.27 8.01 15.76 8.33 16.27 8.24L16.63 8.17C17.1 8.08 17.5 8.42 17.5 8.9V9.08C17.5 9.44 17.28 9.76 16.95 9.89L16.05 10.25C15.43 10.5 15.15 11.23 15.47 11.82L15.8 12.44C16.02 12.85 15.89 13.36 15.5 13.6L14.5 14.23C14.19 14.42 13.8 14.38 13.53 14.13C13.1 13.74 12.44 13.76 12.03 14.17L11.73 14.47C11.33 14.87 10.67 14.85 10.29 14.43L10.11 14.23C9.84 13.93 9.41 13.82 9.03 13.97L8.46 14.45ZM15 18L14.18 16.36C13.98 15.97 13.59 15.72 13.15 15.72H11.85C11.41 15.72 11.02 15.97 10.82 16.36L10 18" fill="white"/>
-      </svg>
-    ),
-    label: "COLLABORATIVE LEARNING ENVIROMENT",
-  },
-  {
-    icon: (
-      <svg width="30" height="48" viewBox="0 0 448 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M319.4 320.6L224 416L128.6 320.6C57.1 323.7 0 381.1 0 451.8V464C0 490.5 21.5 512 48 512H400C426.5 512 448 490.5 448 464V451.8C448 381.1 390.9 323.7 319.4 320.6ZM224 288C288.5 288 344 257.4 344 176V160C344 71.6 295 0 224 0C153 0 104 71.6 104 160V176C104 257.4 159.5 288 224 288ZM178 146.4L224 73.6L270 146.4H322L286 208H162L126 146.4H178Z" fill="white"/>
-      </svg>
-    ),
-    label: "CERTIFICATE UPON COMPLETION",
-  },
-];
+// Exact parametric ellipse parameters fitting the Figma 1440px arch
+const RX = 627;
+const RY = 765;
+const Y_CENTER = 452;
+const MAX_DEG = 85;
 
 export default function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
-  }, []);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const progressRef = useRef(0);
+  const lastTimeRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval);
-  }, [nextSlide]);
+    let animId: number;
+    // 36 seconds for one complete, serene, continuous loop
+    const LOOP_DURATION = 36000;
+    // 72% of the loop is on the visible arc; 28% is the hidden reset trip
+    const VISIBLE_RATIO = 0.72;
+
+    const tick = (now: number) => {
+      if (lastTimeRef.current === null) {
+        lastTimeRef.current = now;
+      }
+      const rawDelta = now - lastTimeRef.current;
+      lastTimeRef.current = now;
+      // Cap delta to prevent hitching if tab becomes inactive
+      const delta = Math.min(rawDelta, 50);
+
+      // Continuously advance progress without stopping on hover
+      progressRef.current = (progressRef.current + delta / LOOP_DURATION) % 1.0;
+
+      const totalCards = archCards.length;
+
+      for (let i = 0; i < totalCards; i++) {
+        const el = cardRefs.current[i];
+        if (!el) continue;
+
+        // Progress of card i along the loop [0, 1)
+        const u = (progressRef.current + i / totalCards) % 1.0;
+
+        if (u <= VISIBLE_RATIO) {
+          // Linear continuous progress across the visible arc
+          const lambda = u / VISIBLE_RATIO;
+          const deg = -MAX_DEG + lambda * (2 * MAX_DEG);
+          const phi = (deg * Math.PI) / 180;
+
+          // Pure parametric ellipse coordinates
+          const x = RX * Math.sin(phi);
+          const y = Y_CENTER - RY * Math.cos(phi);
+          const rot = deg * 0.95;
+
+          // Smooth linear fade-in at bottom-left entrance, fade-out at bottom-right exit
+          let opacity = 1;
+          if (lambda < 0.12) {
+            opacity = lambda / 0.12;
+          } else if (lambda > 0.88) {
+            opacity = (1 - lambda) / 0.12;
+          }
+
+          // Gentle scale peaking at apex
+          const scale = 0.94 + 0.08 * Math.sin(lambda * Math.PI);
+
+          el.style.opacity = opacity.toFixed(3);
+          el.style.visibility = opacity < 0.01 ? "hidden" : "visible";
+          el.style.pointerEvents = opacity < 0.2 ? "none" : "auto";
+          el.style.transform = `translate3d(calc(-50% + ${x.toFixed(1)}px), calc(-50% + ${y.toFixed(1)}px), 0) rotate(${rot.toFixed(1)}deg) scale(${scale.toFixed(3)})`;
+        } else {
+          // Invisible smooth return trip underneath
+          const r = (u - VISIBLE_RATIO) / (1 - VISIBLE_RATIO);
+          const deg = MAX_DEG - r * (2 * MAX_DEG);
+          const phi = (deg * Math.PI) / 180;
+          const x = RX * Math.sin(phi);
+          const y = Y_CENTER - RY * Math.cos(phi);
+
+          el.style.opacity = "0";
+          el.style.visibility = "hidden";
+          el.style.pointerEvents = "none";
+          el.style.transform = `translate3d(calc(-50% + ${x.toFixed(1)}px), calc(-50% + ${y.toFixed(1)}px), 0)`;
+        }
+      }
+
+      animId = requestAnimationFrame(tick);
+    };
+
+    animId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId);
+  }, []);
 
   return (
-    <section id="top" className="relative mx-auto w-full max-w-[1920px] overflow-hidden">
-      {/* Background Image Carousel */}
-      <div className="absolute inset-0 z-0">
-        {carouselImages.map((img, index) => (
-          <div
-            key={img.src}
-            className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
-            style={{ opacity: index === currentIndex ? 1 : 0 }}
-          >
-            <Image
-              src={`${base}${img.src}`}
-              alt={img.alt}
-              fill
-              priority={index === 0}
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-        ))}
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[rgba(0,3,10,0.88)]" />
-      </div>
-
-      {/* Content Container */}
-      <div className="relative z-[2] flex min-h-[600px] flex-col items-center justify-center px-5 pb-[40px] pt-[120px] sm:min-h-[800px] sm:pb-[200px] lg:min-h-[1024px] lg:pb-[240px] lg:pt-[140px]">
-        <Reveal className="flex w-full max-w-[773px] flex-col items-center text-center">
-          <h1 className="w-full pt-5 font-[family-name:var(--font-montserrat)] text-[34px] font-bold leading-[1.2] tracking-[-1.2px] text-white sm:text-[52px] lg:text-[72px]">
-            Learn Skills that get you hired in 14 weeks.
-          </h1>
-          <p className="mt-5 w-full max-w-[641px] font-[family-name:var(--font-inter)] text-[14px] font-semibold leading-[1.5] text-white sm:text-[16px]">
-            Codemantix Collective Academy is a mentor-led bootcamp where you build real-world projects, get hands-on feedback, and graduate with a portfolio that gets you hired, not just certificate
-          </p>
-          <div className="flex flex-col items-center justify-center gap-3 pt-8 sm:flex-row">
-            <SpringLink
-              href="#courses"
-              className="flex h-[46px] items-center justify-center gap-2 rounded-full border border-white bg-transparent px-[25px] font-[family-name:var(--font-montserrat)] text-[14px] font-bold leading-5 text-white"
+    <section
+      id="top"
+      className="relative flex  w-full flex-col items-center overflow-hidden bg-white pb-20"
+    >
+      {/* 1440px Figma Photo Arch Canvas */}
+      <div className="pointer-events-none absolute left-1/2 -top-16  w-[1440px] -translate-x-1/2 origin-top md:block sm:block lg:block xl:block">
+        <div className="relative h-full w-full">
+          {archCards.map((card, i) => (
+            <div
+              key={card.src}
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
+              className="absolute left-1/2 top-[520px] will-change-transform"
+              style={{
+                width: "230px",
+                height: "305px",
+                opacity: 0,
+                visibility: "hidden",
+              }}
             >
-              See what you&apos;ll learn <span>→</span>
-            </SpringLink>
-            <SpringLink
-              href="https://forms.gle/mekayJoQZjgNDJ4x5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-[46px] items-center justify-center gap-2 rounded-full border border-[#4b61a1] bg-[#1e3a8a] px-[25px] font-[family-name:var(--font-montserrat)] text-[14px] font-bold leading-5 text-white shadow-[0_5px_13.25px_rgba(27,53,126,.68)]"
-            >
-              Apply Now <span>→</span>
-            </SpringLink>
-          </div>
-        </Reveal>
-      </div>
-
-      {/* Key Metrics Cards */}
-      <div className="relative z-[3] mx-auto w-[calc(100%-30px)] max-w-[1000px] pb-6 sm:absolute sm:bottom-8 sm:left-1/2 sm:pb-0 sm:-translate-x-1/2 lg:bottom-10">
-        <div className="flex flex-col gap-4 backdrop-blur-[5.2px] sm:flex-row sm:gap-[41px]">
-          {keyMetrics.map((metric) => (
-            <div key={metric.label} className="flex flex-1 flex-row items-center">
-              <div className="flex h-full w-full flex-col items-center justify-center gap-[10px] rounded-[12px] border border-white/10 bg-white/10 p-5">
-                <div className="flex h-[48px] w-[48px] items-center justify-center">
-                  {metric.icon}
-                </div>
-                <p className="text-center font-[family-name:var(--font-montserrat)] text-[12px] font-semi-bold leading-[1.2] tracking-[-1.2px] text-white sm:text-[16px] lg:text-[20px]">
-                  {metric.label}
-                </p>
+              <div className="group/card relative h-full w-full overflow-hidden rounded-[26px] border border-slate-100/90 bg-white shadow-[0_16px_36px_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-105 hover:shadow-[0_24px_48px_rgba(0,0,0,0.2)]">
+                <Image
+                  src={card.src}
+                  alt={card.alt}
+                  fill
+                  sizes="200px"
+                  priority={i < 4}
+                  className="object-contain transition-transform duration-500 group-hover/card:scale-105"
+                />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-   
+      {/* Center Hero Content */}
+      <div className="relative z-20 flex w-full max-w-[760px] flex-col items-center px-4 pt-[340px] text-center sm:pt-[400px] lg:pt-[360px]">
+        <Reveal className="flex flex-col items-center">
+          <h1 className="font-[family-name:var(--font-montserrat)] text-[24px] font-extrabold leading-[1.12] tracking-tight text-[#111827] sm:text-[48px] md:text-[48px]">
+            Learn Skills that
+            <br />
+            get you hired in 14
+            <br />
+            weeks.
+          </h1>
+
+          <p className="mt-6 max-w-[620px] font-[family-name:var(--font-inter)] text-[14px] font-normal leading-relaxed text-[#374151] sm:text-[16px] lg:text-[17px]">
+            Codemantix Collective Academy is a mentor-led bootcamp where you build
+            real-world projects, get hands-on feedback, and graduate with a
+            portfolio that gets you hired, not just certificate
+          </p>
+
+          <div className="mt-8 flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <Link
+              href="https://forms.gle/mekayJoQZjgNDJ4x5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-[46px] sm:h-[48px] items-center justify-center gap-2 rounded-full bg-[#1b357e] px-7 sm:px-8 font-[family-name:var(--font-montserrat)] text-[14px] sm:text-[15px] font-bold text-white shadow-[0_12px_24px_rgba(27,53,126,0.4)] transition-all hover:bg-[#152a65] hover:shadow-[0_14px_28px_rgba(27,53,126,0.5)] hover:-translate-y-0.5 active:translate-y-0"
+            >
+              Apply Now <span className="text-base font-normal">→</span>
+            </Link>
+
+            <Link
+              href="#curriculum"
+              className="inline-flex h-[46px] sm:h-[48px] items-center justify-center gap-2 rounded-full border border-[#1b357e] bg-white px-7 sm:px-8 font-[family-name:var(--font-montserrat)] text-[14px] sm:text-[15px] font-bold text-[#1b357e] transition-all hover:bg-slate-50 hover:-translate-y-0.5 active:translate-y-0"
+            >
+              See what you&apos;ll learn <span className="text-base font-normal">→</span>
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Bottom Soft Fade Gradient Overlay */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 sm:h-44 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
     </section>
   );
 }

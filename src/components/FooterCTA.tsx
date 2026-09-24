@@ -113,79 +113,89 @@ export default function FooterCTA() {
             </div>
 
             {/* Right - Links */}
-            <div className="flex flex-wrap gap-10 lg:gap-[20px] flex-1">
-              {/* Quick Links */}
-              <div className="flex flex-col gap-3">
-                <h4 className="font-[family-name:var(--font-inter)] font-semibold text-[14px] leading-[28px] text-white">
-                  Quick Links:
+            <div className="flex flex-wrap gap-12 sm:gap-16 lg:gap-20 flex-1 justify-start lg:justify-end">
+              {/* Courses / Tracks */}
+              <div className="flex flex-col gap-3 min-w-[140px]">
+                <h4 className="font-[family-name:var(--font-montserrat)] font-bold text-[14px] leading-[24px] tracking-wide text-white">
+                  Tracks
                 </h4>
-                <ul className="flex flex-col gap-2">
-                  {["Home", "Courses", "Knowledge Base", "About Us", "Contact"].map(
-                    (link) => (
-                      <li key={link}>
-                        <Link
-                          href="#"
-                          className="font-[family-name:var(--font-inter)] text-[14px] leading-[24px] text-white hover:opacity-80 transition-opacity"
-                        >
-                          {link}
-                        </Link>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-
-              {/* Resources */}
-              <div className="flex flex-col gap-3">
-                <h4 className="font-[family-name:var(--font-inter)] font-semibold text-[14px] leading-[28px] text-white">
-                  Resources:
-                </h4>
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-2.5">
                   {[
-                    "Student Dashboard",
-                    "Instructor Portal",
-                    "Community",
-                    "Frequently Asked Question",
-                  ].map((link) => (
-                    <li key={link}>
+                    { label: "Software Engineering", href: "#courses" },
+                    { label: "Graphic Design", href: "#courses" },
+                    { label: "Data Analytics", href: "#courses" },
+                    { label: "UI/UX Design", href: "#courses" },
+                  ].map((item) => (
+                    <li key={item.label}>
                       <Link
-                        href="#"
-                        className="font-[family-name:var(--font-inter)] text-[14px] leading-[24px] text-white hover:opacity-80 transition-opacity"
+                        href={item.href}
+                        className="font-[family-name:var(--font-inter)] text-[14px] leading-[22px] text-[#cbd5e1] hover:text-white transition-colors"
                       >
-                        {link}
+                        {item.label}
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Legal */}
-              <div className="flex flex-col gap-3">
-                <h4 className="font-[family-name:var(--font-inter)] font-semibold text-[14px] leading-[28px] text-white">
-                  Legal:
+              {/* Navigation */}
+              <div className="flex flex-col gap-3 min-w-[140px]">
+                <h4 className="font-[family-name:var(--font-montserrat)] font-bold text-[14px] leading-[24px] tracking-wide text-white">
+                  Bootcamp
                 </h4>
-                <ul className="flex flex-col gap-2">
-                  {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
-                    (link) => (
-                      <li key={link}>
-                        <Link
-                          href="#"
-                          className="font-[family-name:var(--font-inter)] text-[14px] leading-[24px] text-white hover:opacity-80 transition-opacity"
-                        >
-                          {link}
-                        </Link>
-                      </li>
-                    )
-                  )}
+                <ul className="flex flex-col gap-2.5">
+                  {[
+                    { label: "About", href: "#about" },
+                    { label: "Curriculum", href: "#curriculum" },
+                    { label: "How It Works", href: "#how-it-works" },
+                    { label: "Pricing", href: "#pricing" },
+                    { label: "FAQ", href: "#faq" },
+                  ].map((item) => (
+                    <li key={item.label}>
+                      <Link
+                        href={item.href}
+                        className="font-[family-name:var(--font-inter)] text-[14px] leading-[22px] text-[#cbd5e1] hover:text-white transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Application CTA */}
+              <div className="flex flex-col gap-3 min-w-[140px]">
+                <h4 className="font-[family-name:var(--font-montserrat)] font-bold text-[14px] leading-[24px] tracking-wide text-white">
+                  Admissions
+                </h4>
+                <ul className="flex flex-col gap-2.5">
+                  <li>
+                    <Link
+                      href="https://forms.gle/mekayJoQZjgNDJ4x5"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 font-[family-name:var(--font-inter)] text-[14px] font-semibold text-[#93c5fd] hover:text-white transition-colors"
+                    >
+                      Apply Now <span>→</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#pricing"
+                      className="font-[family-name:var(--font-inter)] text-[14px] leading-[22px] text-[#cbd5e1] hover:text-white transition-colors"
+                    >
+                      Tuition &amp; Plans
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t-4 border-[#c5d4fe] mt-8 h-[53px] flex items-center justify-center overflow-hidden">
-            <p className="font-[family-name:var(--font-inter)] text-[11px] leading-[28px] text-white">
-              All Rights Reserved 2026
+          <div className="border-t border-white/10 mt-12 py-6 flex items-center justify-center">
+            <p className="font-[family-name:var(--font-inter)] text-xs text-[#94a3b8]">
+              &copy; 2026 Codemantix Collective Academy. All Rights Reserved.
             </p>
           </div>
         </div>

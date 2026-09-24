@@ -14,21 +14,82 @@ const navLinks = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+
   return (
-    <header className="pointer-events-none fixed left-0 right-0 top-0 z-50 flex justify-center px-5 pt-3 md:px-7">
-      <div className="pointer-events-auto flex h-[60px] w-full max-w-[1100px] items-center justify-between rounded-[14px] bg-white/80 px-[22px] py-[40px] backdrop-blur-[19.8px]">
-        <Link href="#top" aria-label="Codemantix home" className="flex h-[66px] w-[192px]">
-          <Image src="/bootcamp landing page design/bootcamp landing page design/codemantix logo png 2.png" alt="Codemantix Collective" width={140} height={50} priority className=" object-contain" />
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md transition-all">
+      <div className="mx-auto flex h-20 w-full max-w-[1360px] items-center justify-between px-6 sm:px-10 lg:px-14">
+        {/* Logo */}
+        <Link
+          href="#top"
+          aria-label="Codemantix home"
+          className="flex items-center transition-opacity hover:opacity-90"
+        >
+          <Image
+            src="/bootcamp landing page design/bootcamp landing page design/codemantix logo png 2.png"
+            alt="Codemantix Collective"
+            width={175}
+            height={46}
+            priority
+            className="h-9 w-auto object-contain sm:h-10"
+          />
         </Link>
-        <nav aria-label="Primary navigation" className="hidden items-center gap-7 rounded-full border border-[#4b61a1] px-[21px] py-[17px] lg:flex">
-          {navLinks.map((link) => <Link key={link.label} href={link.href} className="font-[family-name:var(--font-montserrat)] text-[13px] font-bold leading-5 text-[#1b1b1b]">{link.label}</Link>)}
+
+        {/* Center Pill Nav */}
+        <nav
+          aria-label="Primary navigation"
+          className="hidden items-center gap-7 rounded-full border border-slate-300 bg-white/80 px-8 py-2.5 shadow-[0_2px_10px_rgba(0,0,0,0.03)] lg:flex"
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="font-[family-name:var(--font-montserrat)] text-[14px] font-semibold text-[#1e293b] transition-colors hover:text-[#1d3d8f]"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
-        <div className="flex items-center gap-2">
-          <Link href="https://forms.gle/mekayJoQZjgNDJ4x5" target="_blank" rel="noopener noreferrer" className="hidden h-[38px] items-center justify-center gap-2 rounded-full border border-[#4b61a1] bg-[#1e3a8a] px-[20px] font-[family-name:var(--font-montserrat)] text-[13px] font-bold leading-5 text-white shadow-[0_5px_13.25px_rgba(27,53,126,.68)] sm:flex sm:px-[25px]">Apply Now <span>→</span></Link>
-          <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation" className="grid h-11 w-11 place-items-center rounded-full border border-[#dce3f3] text-xl text-[#1e3a8a] lg:hidden">{open ? "×" : "☰"}</button>
+
+        {/* Right CTA / Mobile Toggle */}
+        <div className="flex items-center gap-3">
+          <Link
+            href="https://forms.gle/mekayJoQZjgNDJ4x5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-[42px] items-center justify-center gap-2 rounded-full bg-[#1b357e] px-6 font-[family-name:var(--font-montserrat)] text-[14px] font-bold text-white shadow-[0_8px_20px_rgba(27,53,126,0.38)] transition-all hover:bg-[#152a65] hover:shadow-[0_10px_25px_rgba(27,53,126,0.48)] hover:-translate-y-0.5 active:translate-y-0"
+          >
+            Apply Now <span className="text-base font-normal">→</span>
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-label="Toggle navigation"
+            className="grid h-10 w-10 place-items-center rounded-full border border-slate-200 text-xl text-[#1e3a8a] transition-colors hover:bg-slate-50 lg:hidden"
+          >
+            {open ? "✕" : "☰"}
+          </button>
         </div>
       </div>
-      {open && <nav className="pointer-events-auto absolute left-5 right-5 top-[112px] overflow-hidden rounded-[20px] border border-[#e5eaf7] bg-white p-4 shadow-xl md:left-10 md:right-10 lg:hidden">{navLinks.map((link) => <Link key={link.label} href={link.href} onClick={() => setOpen(false)} className="block border-b border-[#edf0f7] px-2 py-3 font-[family-name:var(--font-montserrat)] text-sm font-bold text-[#1b1b1b] last:border-0">{link.label}</Link>)}</nav>}
+
+      {/* Mobile Drawer */}
+      {open && (
+        <div className="border-b border-slate-100 px-6 pb-6 pt-2 shadow-xl lg:hidden">
+          <nav className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-3 py-2.5 font-[family-name:var(--font-montserrat)] text-base font-semibold text-[#1e293b] hover:bg-slate-50 hover:text-[#1d3d8f]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
