@@ -20,7 +20,7 @@ export default function Header() {
       <div className="mx-auto flex h-20 w-full max-w-[1360px] items-center justify-between px-6 sm:px-10 lg:px-14">
         {/* Logo */}
         <Link
-          href="#top"
+          href="/"
           aria-label="Codemantix home"
           className="flex items-center transition-opacity hover:opacity-90"
         >
