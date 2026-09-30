@@ -14,11 +14,9 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ? process.env.NEXT_PUBLIC_SITE_URL
-  : process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "https://bootcamp.codemantix.com";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://bootcamp.codemantixcollective.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -29,14 +27,16 @@ export const metadata: Metadata = {
     title: "Codemantix Career Skills Bootcamp",
     description:
       "14 weeks intensive practical mentorship for beginners and intermediates. Web Development, UI/UX Design, Graphic Design, and Data Analytics.",
-    url: "/",
+    url: siteUrl,
     siteName: "Codemantix Collective",
     images: [
       {
         url: "/og-image.jpg",
+        secureUrl: `${siteUrl}/og-image.jpg`,
         width: 819,
         height: 1024,
-        alt: "Codemantix Career Skills Bootcamp",
+        type: "image/jpeg",
+        alt: "Codemantix Career Skills Bootcamp Flyer",
       },
     ],
     locale: "en_US",
